@@ -1,7 +1,7 @@
 import cv2
 from ultralytics import YOLO
 
-model = YOLO('detection/last.pt')
+model = YOLO('../train_results_150_epochs\weights\last.pt')
 
 def process_video(source):
     cap = cv2.VideoCapture(source)
@@ -45,6 +45,7 @@ def process_video(source):
 # source = 'detection/Airshow2024.mp4'
 # source = 'detection/BalloonFiesta.mp4'
 # source = 'detection/DronevsBird.mp4'
-source = 'detection/Eagleattacks.mp4'
+# source = 'detection/Eagleattacks.mp4'
+source = 'detection/movie.mp4'
 
 process_video(source)
