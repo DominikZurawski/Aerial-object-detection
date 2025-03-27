@@ -11,7 +11,7 @@ def process_video(source):
     fps = int(cap.get(cv2.CAP_PROP_FPS))
 
     fourcc = cv2.VideoWriter_fourcc(*'MJPG')  # Kodek wideo
-    out = cv2.VideoWriter('detection/output.avi', fourcc, fps, (frame_width, frame_height))
+    out = cv2.VideoWriter('detection/output.mp4', fourcc, fps, (frame_width, frame_height))
 
     while True:
         ret, frame = cap.read()
@@ -44,6 +44,6 @@ def process_video(source):
 # source = 0  # 0 dla kamery, lub ścieżka do pliku wideo, np. 'path/to/video.mp4'
 # source = 'DronevsBird.mp4'
 # source = 'Eagleattacks.mp4'
-source = 'detection/movie.mp4'
+source = 'detection/movie1.mp4'
 # source = 'BalloonFiesta.mp4'
 process_video(source)
