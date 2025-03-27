@@ -11,7 +11,7 @@ def process_video(source):
     fps = int(cap.get(cv2.CAP_PROP_FPS))
 
     fourcc = cv2.VideoWriter_fourcc(*'MJPG')  # Kodek wideo
-    out = cv2.VideoWriter('detection/output.mp4', fourcc, fps, (frame_width, frame_height))
+    out = cv2.VideoWriter('detection/output4.mp4', fourcc, fps, (frame_width, frame_height))
 
     while True:
         ret, frame = cap.read()
@@ -32,7 +32,7 @@ def process_video(source):
                               0.9, (0, 255, 0), 2)
 
         out.write(frame)
-        cv2.imshow('Object Detection', frame)
+        # cv2.imshow('Object Detection', frame)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
@@ -41,9 +41,10 @@ def process_video(source):
     out.release()
     cv2.destroyAllWindows()
 
-# source = 0  # 0 dla kamery, lub ścieżka do pliku wideo, np. 'path/to/video.mp4'
-# source = 'DronevsBird.mp4'
-# source = 'Eagleattacks.mp4'
-source = 'detection/movie1.mp4'
-# source = 'BalloonFiesta.mp4'
+# source = 0  # 0 camera or path 'path/to/video.mp4'
+# source = 'detection/Airshow2024.mp4'
+# source = 'detection/BalloonFiesta.mp4'
+# source = 'detection/DronevsBird.mp4'
+source = 'detection/Eagleattacks.mp4'
+
 process_video(source)

@@ -1,2 +1,4 @@
 data/
 venv/
+detection/movie.mp4
+detection\output.mp4
