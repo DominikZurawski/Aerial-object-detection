@@ -1,7 +1,7 @@
 import cv2
 from ultralytics import YOLO
 
-model = YOLO('detection/last.pt')
+model = YOLO('detection/best.pt')
 
 def process_video(source):
     cap = cv2.VideoCapture(source)
@@ -10,8 +10,8 @@ def process_video(source):
     frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
     fps = int(cap.get(cv2.CAP_PROP_FPS))
 
-    fourcc = cv2.VideoWriter_fourcc(*'MJPG')  # Kodek wideo
-    out = cv2.VideoWriter('detection/output.avi', fourcc, fps, (frame_width, frame_height))
+    fourcc = cv2.VideoWriter_fourcc(*'MJPG')
+    out = cv2.VideoWriter('detection/output4.mp4', fourcc, fps, (frame_width, frame_height))
 
     while True:
         ret, frame = cap.read()
@@ -32,7 +32,7 @@ def process_video(source):
                               0.9, (0, 255, 0), 2)
 
         out.write(frame)
-        cv2.imshow('Object Detection', frame)
+        # cv2.imshow('Object Detection', frame)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
@@ -41,9 +41,8 @@ def process_video(source):
     out.release()
     cv2.destroyAllWindows()
 
-# source = 0  # 0 dla kamery, lub ścieżka do pliku wideo, np. 'path/to/video.mp4'
-# source = 'DronevsBird.mp4'
-# source = 'Eagleattacks.mp4'
+# source = 0  # 0 camera or path 'path/to/video.mp4'
+
 source = 'detection/movie.mp4'
-# source = 'BalloonFiesta.mp4'
+
 process_video(source)
