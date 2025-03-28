@@ -1,7 +1,7 @@
 import cv2
 from ultralytics import YOLO
 
-model = YOLO('../train_results_150_epochs\weights\last.pt')
+model = YOLO('../YOLOv11_AP_results/train_results/weights/last.pt')
 
 def process_video(source):
     cap = cv2.VideoCapture(source)
@@ -10,7 +10,7 @@ def process_video(source):
     frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
     fps = int(cap.get(cv2.CAP_PROP_FPS))
 
-    fourcc = cv2.VideoWriter_fourcc(*'MJPG')  # Kodek wideo
+    fourcc = cv2.VideoWriter_fourcc(*'MJPG')
     out = cv2.VideoWriter('detection/output4.mp4', fourcc, fps, (frame_width, frame_height))
 
     while True:
