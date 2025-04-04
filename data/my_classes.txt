@@ -1,6 +1,0 @@
-airplane
-balloon
-bird
-drone
-helicopter
-sky
