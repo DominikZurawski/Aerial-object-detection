@@ -58,7 +58,7 @@ def process_video(source, model, transform, output_path, skip_frames, conf_thres
         cap = cv2.VideoCapture(source)
 
     if not cap.isOpened():
-        print(f"Nie można otworzyć źródła wideo: {source}")
+        print(f"Video source cannot be opened: {source}")
         return
 
     fps = cap.get(cv2.CAP_PROP_FPS)
@@ -72,9 +72,9 @@ def process_video(source, model, transform, output_path, skip_frames, conf_thres
     last_prediction = None
     last_confidence = 0.0
 
-    print(f"Rozpoczęto przetwarzanie wideo z źródła: {source}")
-    print(f"Wyjściowy plik: {output_path}")
-    print(f"Klasyfikacja co {skip_frames} ramek")
+    print(f"Video processing from the source has begun: {source}")
+    print(f"Output file: {output_path}")
+    print(f"Classification every {skip_frames} frames")
 
     try:
         while cap.isOpened():
@@ -97,25 +97,25 @@ def process_video(source, model, transform, output_path, skip_frames, conf_thres
                 last_confidence = conf
 
             if last_prediction is not None:
-                info_text = f"Ostatnia detekcja: {class_names[last_prediction]} ({last_confidence:.2f})"
+                info_text = f"Last detection: {class_names[last_prediction]} ({last_confidence:.2f})"
                 cv2.putText(frame, info_text, (10, frame_height - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 1)
 
             out.write(frame)
 
-            cv2.imshow('Detekcja obiektów', frame)
+            cv2.imshow('Object detection', frame)
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
 
             if frame_count % 100 == 0:
-                print(f"Przetworzono {frame_count} ramek")
+                print(f"Processed {frame_count} frames")
 
     except KeyboardInterrupt:
-        print("Przerwano przetwarzanie przez użytkownika.")
+        print("User processing interrupted.")
     finally:
         cap.release()
         out.release()
         cv2.destroyAllWindows()
-        print(f"Zakończono przetwarzanie wideo. Przetworzono {frame_count} ramek.")
+        print(f"Video processing completed. Processed {frame_count} frames.")
 
 def main():
     args = parse_args()
