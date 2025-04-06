@@ -54,8 +54,6 @@ Training was conducted on YOLOv8 and YOLOv11 models. Comparison results:
 Interactive demo available on Hugging Face Spaces:  
 [https://huggingface.co/spaces/Domino675/AerialObjectVision](https://huggingface.co/spaces/Domino675/AerialObjectVision)
 
-![Demo interface](https://huggingface.co/spaces/Domino675/AerialObjectVision/raw/main/assets/cover.png)
-
 ## 📈 Results Visualization
 - The trained model has been applied to a video, and the output is available at: `/detection/output.mp4`
 
