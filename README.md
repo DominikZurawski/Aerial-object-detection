@@ -32,6 +32,18 @@ Training was conducted on YOLOv8 and YOLOv11 models. Comparison results:
 
 🛠 **Best model:** `YOLOv8_exp1` (mAP50-95 = 0.496, precision = 0.824, recall = 0.689)
 
+### EfficientNetB2
+- **Architecture**: Pretrained EfficientNetB2 with custom classification head
+- **Training Parameters**:
+  - 25 epochs
+  - Adam optimizer (lr=1e-3)
+  - Batch size: 32
+- **Results**:
+  - Test accuracy: 95.13%
+  - Model size: 29 MB
+  - Total parameters: 7.7M
+  - Trainable parameters: 8,454
+
 ### Vision Transformer (ViT-B/16)
 - **Architecture**: Pretrained ViT-B/16 with custom classification head
 - **Training Parameters**:
